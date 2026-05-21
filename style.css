@@ -1,0 +1,298 @@
+/* Overall HTML/CSS structure influenced by David Sammons' prerecorded videos: "D276 Cohort - Practicing HTML & CSS" (accessed 8 Oct. 2025) and "Hands-On with JavaScript" (accessed 9 Oct. 2025), quizzets.wgu.edu */
+/* CSS techniques (e.g., box-shadow, margins, Flexbox, etc.) influenced by W3Schools tutorials, last accessed 11 Oct. 2025 */
+/*************
+   VARIABLES
+ *************/
+:root {
+  --color0: #ccc;
+  --color1: #ffffff;
+  --color2: #0559ba;
+  --color3: #0104b0;
+  --color4: #a3a3a3;
+  --color5: #343434;
+  --color6: #4caf50;
+  --color7: #d3d3d3;
+}
+
+/***************
+   ID SELECTOR
+ ***************/
+#coreComp {
+  columns: 2;
+  margin: 0; /* Four values [Top][R][Bottom][L] */
+  margin-left: 25px;
+  margin-bottom: 15px;
+  padding: 0;
+  width: 99%;
+  list-style-position: outside;
+}
+
+#coreComp li {
+  padding-inline-start: 0;
+}
+
+#spaceX {
+  color: #c0c0c0;
+  background-color: #000000;
+  text-shadow: 1px 1px 2px #ccc;
+}
+
+/******************
+   CLASS SELECTOR
+ ******************/
+.containerPage {
+  max-width: 900px; /* Creates the container width for the "Page Effect" */
+  margin: 0 auto; /* Two values [Top & Bottom][R & L] */
+  padding: 100px; /* Mimics the margins on an actual resume document */
+  background-color: var(--color1); /* Sheet of white paper color */
+  border: 1px solid var(--color0);
+  /* Paper-like effect inspired by "CSS box-shadow Property: Creating Shadow Cards" (W3Schools) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Border creates a page effect */
+}
+
+.employerName {
+  color: var(--color2);
+}
+
+.positionTitle {
+  color: var(--color5);
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.sectionHeader {
+  color: var(--color3);
+  font-style: italic;
+  font-variant: small-caps;
+}
+
+.toTop {
+  text-align: center;
+}
+
+/********************
+   ELEMENT SELECTOR
+ ********************/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5; /* Line spacing for text readability */
+  background-color: var(
+    --color7
+  ); /* To distinguish the page effect from the background */
+}
+
+/**********
+   Header
+ **********/
+header {
+  display: flex; /* Flex container for layout of flex items */
+  flex-direction: column; /* Stack h1 and h2 vertically */
+  align-items: center; /* Center horizontally */
+}
+
+header h1 {
+  margin: 0; /* Prevents browswer from applying default margins */
+  font-style: italic;
+  color: var(--color5);
+  font-variant: small-caps;
+}
+
+header h2 {
+  margin: 0; /* Prevents browswer from applying default margins */
+}
+
+/**************
+   Navigation
+ **************/
+nav {
+  display: flex;
+  justify-content: center; /* Center the nav content */
+}
+
+nav ul {
+  list-style-type: none; /* Removed the bullets */
+  padding: 0;
+  display: flex; /* Display list items in a row */
+}
+/* Descendant Selector */
+nav ul li {
+  margin: 0 20px;
+}
+/* Pseudo-class Selector "hover" a.k.a. "mouse over" */
+nav ul li a:hover {
+  color: var(--color6);
+}
+
+/***********
+   Table
+ ***********/
+caption {
+  font-weight: bold;
+  font-size: large;
+  color: var(--color5);
+  letter-spacing: 1.5px;
+  font-size: large;
+  text-decoration: underline;
+}
+
+table {
+  margin: 14px;
+  border-collapse: collapse;
+  border-spacing: 3px;
+  padding: 3px;
+  width: 99%;
+}
+
+th {
+  font-style: italic;
+  font-variant: small-caps;
+  color: var(--color2);
+}
+
+td {
+  /*border: 2px solid var(--color4);*/
+  border: none;
+  vertical-align: top;
+  padding: 7px;
+  color: var(--color5);
+}
+
+td:nth-child(3) {
+  text-align: center; /* Center only Years of Experience column */
+}
+
+/***********
+   Footer
+ ***********/
+footer {
+  display: flex;
+  justify-content: space-between; /* Left-align contactMe, right-align footerRight */
+  align-items: flex-end; /* Align content at bottom */
+  max-width: 900px; /* Match countainerPage width */
+  margin: 0 auto 20px; /* Added space to bottom for appearance */
+  padding: 20px; /* Match mobile padding */
+}
+
+.footerRight {
+  text-align: right;
+}
+
+#contactMe,
+.footerRight {
+  margin: 0 0 20px; /* Three values [Top][R & L][Bottom] */
+  padding: 0;
+}
+
+.copyright {
+  color: var(--color3);
+}
+
+/*********
+   Form
+ *********/
+* {
+  box-sizing: border-box; /* Reset default margins and padding */
+}
+
+/* Form container to hold the two columns */
+.formContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+  gap: 10px; /* Space between input fields */
+  max-width: 600px; /* Optional: limits form width */
+  min-width: 300px; /* Ensures input fields don’t get too narrow */
+  margin: 0 auto; /* Centers the form */
+  padding: 20px;
+  background-color: var(--color2);
+  color: var(--color0);
+}
+
+/* Style labels and inputs */
+label {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%; /* Full width of the column */
+  padding: 8px;
+  border: 1px solid var(--color0);
+  border-radius: 4px;
+}
+
+/* Radio and checkbox groups */
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+}
+
+fieldset {
+  border: 1px solid var(--color0);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Buttons */
+.formButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+input[type="reset"],
+input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="reset"] {
+  background-color: var(--color4);
+  color: var(--color1);
+}
+
+input[type="submit"] {
+  background-color: var(--color6);
+  color: var(--color1);
+}
+
+/**************************
+   Responsive Adjustments
+ **************************/
+@media (max-width: 600px) {
+  /* Default media type is "all" */
+  .containerPage {
+    padding: 20px; /* Reduce padding on narrow screens */
+  }
+
+  #coreComp {
+    columns: 1;
+  }
+
+  footer {
+    flex-direction: column; /* Stack footer content on mobile */
+    align-items: flex-start; /* Keep left alignment */
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footerRight {
+    text-align: left; /* Align left on mobile for consistency */
+    margin-top: 10px; /* Space between contactMe and footerRight */
+  }
+}

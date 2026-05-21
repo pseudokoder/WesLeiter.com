@@ -1,0 +1,1 @@
+document.getElementById('test-header').innerText = 'JavaScript is working!';
